@@ -9,7 +9,7 @@ public class CameraManager : MonoBehaviour
 
     Vector2 camRotation;
 
-    public float lookMin = -90f;
+    public float lookMin = -30f;
     public float lookMax = 90f;
 
     // Start is called before the first frame update
@@ -38,5 +38,7 @@ public class CameraManager : MonoBehaviour
         gObject.transform.rotation = Quaternion.Euler(camRotation.y, camRotation.x, 0);
 
         camRotation.y = Mathf.Clamp(camRotation.y, lookMin, lookMax);
+
+        
     }
 }

@@ -227,6 +227,7 @@ GameObject:
   m_Component:
   - component: {fileID: 749671799}
   - component: {fileID: 749671798}
+  - component: {fileID: 749671800}
   m_Layer: 0
   m_Name: Virtual Camera
   m_TagString: Untagged
@@ -281,14 +282,27 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 749671797}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.12218328, y: 0, z: 0, w: 0.9925076}
-  m_LocalPosition: {x: 2.9707925, y: 5.1608133, z: -10.486245}
+  m_LocalRotation: {x: 0.12218328, y: -0, z: -0, w: 0.9925076}
+  m_LocalPosition: {x: 4.860976, y: 2.8632643, z: -6.259887}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1653662448}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1495240466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &749671800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 749671797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 883344e27c0e80b42ab4a962b62f848e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vCam: {fileID: 0}
 --- !u!1 &868132575
 GameObject:
   m_ObjectHideFlags: 0
@@ -586,7 +600,7 @@ GameObject:
   - component: {fileID: 1187771655}
   - component: {fileID: 1187771656}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -671,14 +685,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1187771650}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9707925, y: 2.91, z: -4.87}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 4.1680913, y: 1.9713316, z: -0.9797416}
   m_LocalScale: {x: 2.7700608, y: 0.9503961, z: 5.996171}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1002081674}
   - {fileID: 868132576}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1397280178}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1187771655
 Rigidbody:
@@ -722,6 +736,38 @@ MonoBehaviour:
   speed: 5
   turnSpeed: 50
   rb: {fileID: 0}
+--- !u!1 &1397280177
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1397280178}
+  m_Layer: 0
+  m_Name: Tank
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1397280178
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397280177}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.1972988, y: 0.93866843, z: -3.8902583}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1187771654}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1495240465
 GameObject:
   m_ObjectHideFlags: 0
@@ -752,6 +798,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
+  - {fileID: 749671799}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1653662447
@@ -804,8 +851,8 @@ MonoBehaviour:
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
-  m_HorizontalDamping: 0.5
-  m_VerticalDamping: 0.5
+  m_HorizontalDamping: 0
+  m_VerticalDamping: 0
   m_ScreenX: 0.5
   m_ScreenY: 0.5
   m_DeadZoneWidth: 0
@@ -846,7 +893,7 @@ MonoBehaviour:
   CameraDistance: 6
   CameraCollisionFilter:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 3072
   IgnoreTag: 
   CameraRadius: 0.2
   DampingIntoCollision: 0
@@ -966,6 +1013,5 @@ SceneRoots:
   m_Roots:
   - {fileID: 705507995}
   - {fileID: 2131231468}
-  - {fileID: 1187771654}
+  - {fileID: 1397280178}
   - {fileID: 1495240466}
-  - {fileID: 749671799}
