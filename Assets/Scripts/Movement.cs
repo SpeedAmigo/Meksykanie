@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UIElements;
 
 public class Movement : MonoBehaviour
 {
+    private bool _onGround;
     public float speed;
     public float turnSpeed;
     public Rigidbody rb;
@@ -21,40 +23,26 @@ public class Movement : MonoBehaviour
     {
         myInput();
         SpeedLimit();
+        RaycastF();
     }
 
 
     private void myInput()
     {
-        if (Input.GetMouseButton(0) && Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0) && Input.GetMouseButton(1) && _onGround == true) //moving forward
         {
-            MoveForward();
+            rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
         }
 
-        if (Input.GetMouseButton(0) && !Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && _onGround == true) //Rotation to the right
         {
-            RightTurn();
+            rb.transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
         }
 
-        if (Input.GetMouseButton(1) && !Input.GetMouseButton(0))
+        if (Input.GetMouseButton(1) && !Input.GetMouseButton(0) && _onGround == true) //Rotation to the left 
         {
-            LeftTurn();
+            rb.transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
         }
-    }
-
-    public void MoveForward()
-    {
-        rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
-    }
-
-    public void LeftTurn()
-    {
-        rb.transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-    }
-
-    public void RightTurn()
-    {
-        rb.transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
     }
 
     public void SpeedLimit()
@@ -65,6 +53,19 @@ public class Movement : MonoBehaviour
         {
             Vector3 limitVel = velocity.normalized * speed;
             rb.velocity = new Vector3(limitVel.x, 0f, limitVel.z);
+        }
+    }
+    public void RaycastF()
+    {
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1f))
+        {
+            _onGround = true;
+            rb.drag = 20;
+        }
+        else
+        {
+            _onGround = false;
+            rb.drag = 0;
         }
     }
 }
