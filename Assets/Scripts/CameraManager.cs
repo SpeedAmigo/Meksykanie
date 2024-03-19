@@ -32,7 +32,5 @@ public class CameraManager : MonoBehaviour
         gObject.transform.rotation = Quaternion.Euler(camRotation.y, camRotation.x, 0);
 
         camRotation.y = Mathf.Clamp(camRotation.y, lookMin, lookMax);
-
-        
     }
 }
