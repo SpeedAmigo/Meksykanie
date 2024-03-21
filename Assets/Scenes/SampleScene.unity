@@ -683,13 +683,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002081670}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.0015241494, w: 0.99999887}
-  m_LocalPosition: {x: 0, y: 0.13599998, z: 0.018000007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 1.9015999, y: 0.33836254, z: 1.9016}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1028923942}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.175}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1028923941
 GameObject:
   m_ObjectHideFlags: 0
@@ -715,7 +715,7 @@ Transform:
   m_GameObject: {fileID: 1028923941}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.66, z: 0.602}
+  m_LocalPosition: {x: 0, y: 0.7, z: 0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -874,7 +874,7 @@ Rigidbody:
   m_GameObject: {fileID: 1397280177}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -919,7 +919,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79551d6d6a813cc47bf203549f073d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 868132575}
+  vCamera: {fileID: 868132575}
   turret: {fileID: 1028923941}
   canonPivot: {fileID: 1669682959}
   cameraRotation: {x: 0, y: 0, z: 0, w: 0}
@@ -1079,8 +1079,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669682959}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: 0.0015241494, w: 0.99999887}
-  m_LocalPosition: {x: 0, y: 0.13599998, z: 0.894}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 1.9015999, y: 0.33836251, z: 1.9016}
   m_ConstrainProportionsScale: 0
   m_Children:

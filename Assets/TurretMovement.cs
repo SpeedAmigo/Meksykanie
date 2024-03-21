@@ -7,44 +7,39 @@ using UnityEngine.VFX;
 
 public class TurretMovement : MonoBehaviour
 {
-    public GameObject camera;
+    public GameObject vCamera;
     public GameObject turret;
     public GameObject canonPivot;
+
+    float currentLift;
 
     public Quaternion cameraRotation;
     public Quaternion turretRotation;
     public Quaternion canonRotation;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         TurretRotation();
-        CanonLift();
+
+        float newLift = currentLift + vCamera.transform.localRotation.x * Time.deltaTime * 100;
+
+        CanonLift(newLift);
     }
 
-    private void TurretRotation()
+        private void TurretRotation()
+        {
+            cameraRotation = vCamera.transform.localRotation;
+
+            Vector3 eulerRotationCamera = cameraRotation.eulerAngles;
+
+            turret.transform.localRotation = Quaternion.Euler(0, eulerRotationCamera.y, 0);
+        }
+
+    private void CanonLift(float lift)
     {
-        cameraRotation = camera.transform.localRotation;
+        currentLift = Mathf.Clamp(lift, -10, 20);
+        canonPivot.transform.localRotation = Quaternion.Euler(-lift, 0, 0);
 
-        Vector3 eulerRotationCamera = cameraRotation.eulerAngles;
-
-        turret.transform.localRotation = Quaternion.Euler(0, eulerRotationCamera.y, 0);
-    }
-
-    private void CanonLift()
-    {
-        turretRotation = camera.transform.localRotation;
-
-        Vector3 eulerRotationCanon = turretRotation.eulerAngles;
-
-        canonPivot.transform.localRotation = Quaternion.Euler(eulerRotationCanon.x, 0, 0);
-
-        Debug.Log(eulerRotationCanon.x);
     }
 }

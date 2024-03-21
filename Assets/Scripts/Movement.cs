@@ -1,9 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using System.Text;
 using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UIElements;
+using UnityEngine.Windows.Speech;
 
 public class Movement : MonoBehaviour
 {
@@ -24,6 +26,7 @@ public class Movement : MonoBehaviour
         myInput();
         SpeedLimit();
         RaycastF();
+        Switcher();
     }
 
 
@@ -66,6 +69,18 @@ public class Movement : MonoBehaviour
         {
             _onGround = false;
             rb.drag = 0;
+        }
+    }
+
+    public void Switcher()
+    {
+        if (Input.GetKeyDown(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && speed < 50)
+        {
+            speed = speed + 10;
+        }
+        else if (Input.GetKeyDown(KeyCode.S) && Input.GetKey(KeyCode.LeftShift) && speed > 10)
+        {
+            speed = speed - 10;
         }
     }
 }

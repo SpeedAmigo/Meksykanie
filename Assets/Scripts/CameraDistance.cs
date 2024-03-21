@@ -25,11 +25,11 @@ public class CameraDistance : MonoBehaviour
 
         float mouseScroll = Input.GetAxis("Mouse ScrollWheel");
 
-        if (mouseScroll < 0 && componentBase.CameraDistance > 3) // zooming camera towards object
+        if (mouseScroll > 0 && componentBase.CameraDistance > 3) // zooming camera towards object
         {
             componentBase.CameraDistance--;
         }
-        else if (mouseScroll > 0 && componentBase.CameraDistance < 15) // doing oposite thing
+        else if (mouseScroll < 0 && componentBase.CameraDistance < 15) // doing oposite thing
         {
             componentBase.CameraDistance++;
         }
