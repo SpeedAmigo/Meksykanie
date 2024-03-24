@@ -6,18 +6,62 @@ using UnityEngine;
 using UnityEngine.Timeline;
 using UnityEngine.UIElements;
 using UnityEngine.Windows.Speech;
+using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
     private bool _onGround;
     public float speed;
+    public float maxSpeed;
     public float turnSpeed;
+    public bool isInReverse;
+    
     public Rigidbody rb;
+    private Switcher _switcher;
+
+    public bool isCluchPressed = false;
+    public bool isGearChoosed = false;
+
+    private void Awake()
+    {
+        _switcher = new Switcher();
+    }
+
+    private void OnEnable()
+    {
+        _switcher.Enable();
+        _switcher.Gears.Gear1.performed += GearAction;
+        _switcher.Gears.Gear2.performed += GearAction;
+        _switcher.Gears.Gear3.performed += GearAction;
+        _switcher.Gears.Gear4.performed += GearAction;
+        _switcher.Gears.Reverse.performed += Reverse;
+    }
+
+    private void OnDisable()
+    {
+        _switcher.Disable();
+        _switcher.Gears.Gear1.performed -= GearAction;
+        _switcher.Gears.Gear2.performed -= GearAction;
+        _switcher.Gears.Gear3.performed -= GearAction;
+        _switcher.Gears.Gear4.performed -= GearAction;
+        _switcher.Gears.Reverse.performed -= Reverse;
+    }
+
+    private void GearAction(InputAction.CallbackContext context)
+    {
+        int gearValue = int.Parse(context.action.name.Replace("Gear", ""));
+        maxSpeed = gearValue * 10;
+    }
+    private void Reverse(InputAction.CallbackContext context)
+    {
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        maxSpeed = 0;
     }
 
     // Update is called once per frame
@@ -26,7 +70,6 @@ public class Movement : MonoBehaviour
         myInput();
         SpeedLimit();
         RaycastF();
-        Switcher();
     }
 
 
@@ -52,10 +95,12 @@ public class Movement : MonoBehaviour
     {
         Vector3 velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
-        if (velocity.magnitude > speed)
+        if (velocity.magnitude > maxSpeed)
         {
-            Vector3 limitVel = velocity.normalized * speed;
-            rb.velocity = new Vector3(limitVel.x, 0f, limitVel.z);
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
+
+            //Vector3 limitVel = velocity.normalized * maxSpeed;
+            //rb.velocity = new Vector3(limitVel.x, 0f, limitVel.z);
         }
     }
     public void RaycastF()
@@ -63,24 +108,12 @@ public class Movement : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1f))
         {
             _onGround = true;
-            rb.drag = 20;
+            //rb.drag = 20;
         }
         else
         {
             _onGround = false;
             rb.drag = 0;
-        }
-    }
-
-    public void Switcher()
-    {
-        if (Input.GetKeyDown(KeyCode.W) && Input.GetKey(KeyCode.LeftShift) && speed < 50)
-        {
-            speed = speed + 10;
-        }
-        else if (Input.GetKeyDown(KeyCode.S) && Input.GetKey(KeyCode.LeftShift) && speed > 10)
-        {
-            speed = speed - 10;
         }
     }
 }

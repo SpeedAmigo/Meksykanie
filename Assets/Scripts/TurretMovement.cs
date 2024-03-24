@@ -22,24 +22,23 @@ public class TurretMovement : MonoBehaviour
     {
         TurretRotation();
 
-        float newLift = currentLift + vCamera.transform.localRotation.x * Time.deltaTime * 100;
+        float newLift = currentLift + Input.GetAxis("Vertical") * 10 * Time.deltaTime;
 
         CanonLift(newLift);
     }
 
-        private void TurretRotation()
-        {
-            cameraRotation = vCamera.transform.localRotation;
+    private void TurretRotation()
+    {
+        cameraRotation = vCamera.transform.localRotation;
 
-            Vector3 eulerRotationCamera = cameraRotation.eulerAngles;
+        Vector3 eulerRotationCamera = cameraRotation.eulerAngles;
 
-            turret.transform.localRotation = Quaternion.Euler(0, eulerRotationCamera.y, 0);
-        }
+        turret.transform.localRotation = Quaternion.Euler(0, eulerRotationCamera.y, 0);
+    }
 
     private void CanonLift(float lift)
     {
         currentLift = Mathf.Clamp(lift, -10, 20);
         canonPivot.transform.localRotation = Quaternion.Euler(-lift, 0, 0);
-
     }
 }
