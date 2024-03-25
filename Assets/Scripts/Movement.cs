@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 public class Movement : MonoBehaviour
 {
-    private bool _onGround;
+    public bool _onGround;
     public float speed;
     public float maxSpeed;
     public float turnSpeed;
@@ -18,9 +18,6 @@ public class Movement : MonoBehaviour
     
     public Rigidbody rb;
     private Switcher _switcher;
-
-    public bool isCluchPressed = false;
-    public bool isGearChoosed = false;
 
     private void Awake()
     {
@@ -51,9 +48,14 @@ public class Movement : MonoBehaviour
     {
         int gearValue = int.Parse(context.action.name.Replace("Gear", ""));
         maxSpeed = gearValue * 10;
+        isInReverse = false;
+        speed = 600;
     }
     private void Reverse(InputAction.CallbackContext context)
     {
+        isInReverse = true;
+        speed = -600;
+        maxSpeed = 10;
     }
 
 
@@ -105,15 +107,13 @@ public class Movement : MonoBehaviour
     }
     public void RaycastF()
     {
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1f))
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1.5f))
         {
             _onGround = true;
-            //rb.drag = 20;
         }
         else
         {
             _onGround = false;
-            rb.drag = 0;
         }
     }
 }
