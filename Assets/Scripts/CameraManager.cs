@@ -26,8 +26,8 @@ public class CameraManager : MonoBehaviour
 
     private void MouseInput()
     {
-        camRotation.x += Input.GetAxis("Mouse X") * sensivity;
-        camRotation.y += Input.GetAxis("Mouse Y") * sensivity;
+        camRotation.x += Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
+        camRotation.y += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
 
         gObject.transform.rotation = Quaternion.Euler(camRotation.y, camRotation.x, 0);
 
