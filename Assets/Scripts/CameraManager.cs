@@ -9,8 +9,8 @@ public class CameraManager : MonoBehaviour
 
     Vector2 camRotation;
 
-    public float lookMin = -30f;
-    public float lookMax = 90f;
+    public float lookMin = -40f;
+    public float lookMax = 80f;
 
     // Start is called before the first frame update
     void Start()
