@@ -110,10 +110,12 @@ public class Movement : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1.5f))
         {
             _onGround = true;
+            //rb.drag = 20;
         }
         else
         {
             _onGround = false;
+            rb.drag = 0;
         }
     }
 }
