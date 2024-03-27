@@ -296,7 +296,7 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Gear 3"",
                     ""type"": ""Value"",
-                    ""id"": ""2e2cde4b-1b12-4f02-9ec7-ce70256b814b"",
+                    ""id"": ""755dae6a-8f5c-4f8d-923d-77abf4f9b122"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -305,7 +305,7 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                 {
                     ""name"": ""Gear 4"",
                     ""type"": ""Value"",
-                    ""id"": ""65b768dc-673c-4f84-8974-b339524af40b"",
+                    ""id"": ""2a0d5cdd-aac5-41dc-95fa-8e3b3295924a"",
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -389,9 +389,9 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Two Modifiers"",
-                    ""id"": ""688d3d62-8f0b-4327-966e-1dcd2add6748"",
-                    ""path"": ""TwoModifiers"",
+                    ""name"": ""One Modifier"",
+                    ""id"": ""067463aa-6125-4f86-be2e-23fdf7148d4c"",
+                    ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -400,20 +400,9 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""modifier1"",
-                    ""id"": ""5c3accc3-f684-4515-915a-bf67c0708c0b"",
+                    ""name"": ""modifier"",
+                    ""id"": ""282079af-789f-46ef-b690-0b0c3276a12a"",
                     ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Gear 3"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""modifier2"",
-                    ""id"": ""c4be33ad-24ae-4a9a-9fdc-ced4ab324eee"",
-                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -423,8 +412,8 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""binding"",
-                    ""id"": ""24f3c556-3c0b-4ba8-99d1-9f38da4e1c1d"",
-                    ""path"": ""<Keyboard>/w"",
+                    ""id"": ""a7f38e8a-aa70-402e-8d34-0c823663ffe8"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -433,9 +422,9 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Two Modifiers"",
-                    ""id"": ""34a04aee-f2eb-496c-aac7-7e4e9760c3a2"",
-                    ""path"": ""TwoModifiers"",
+                    ""name"": ""One Modifier"",
+                    ""id"": ""9df7ca79-13ab-46a2-907c-5e2f445cb119"",
+                    ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -444,20 +433,9 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""modifier1"",
-                    ""id"": ""470d0687-5e77-4d05-b1a0-cf9a77cddeaf"",
+                    ""name"": ""modifier"",
+                    ""id"": ""a4bbe89a-642a-44bd-b8d3-39acea5cc6fc"",
                     ""path"": ""<Keyboard>/leftShift"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Gear 4"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""modifier2"",
-                    ""id"": ""ad4496cf-67f7-4080-b021-9f00fc2162a0"",
-                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -467,8 +445,8 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""binding"",
-                    ""id"": ""f3d8604b-e627-4a1c-be28-5ec27bc44f8d"",
-                    ""path"": ""<Keyboard>/s"",
+                    ""id"": ""c034fbd4-2561-4d8c-b04d-e9c76935b80e"",
+                    ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -477,9 +455,9 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""Two Modifiers"",
-                    ""id"": ""fe14d6bf-b4b0-4c11-8f90-2c45ee3462ed"",
-                    ""path"": ""TwoModifiers"",
+                    ""name"": ""One Modifier"",
+                    ""id"": ""ee24d123-b75d-4d36-917b-3b5dd167f5a3"",
+                    ""path"": ""OneModifier"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -488,8 +466,8 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""modifier1"",
-                    ""id"": ""675137a2-b00a-4ab7-b7fc-4f922bed16a9"",
+                    ""name"": ""modifier"",
+                    ""id"": ""c81ffb40-4b0b-43f9-8a17-f854f391777a"",
                     ""path"": ""<Keyboard>/leftShift"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -499,20 +477,9 @@ public partial class @Switcher: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""modifier2"",
-                    ""id"": ""198c1307-4ecb-4d30-bab0-ab6fb4d1c487"",
+                    ""name"": ""binding"",
+                    ""id"": ""73b38905-b03e-4f3c-98cd-4bc2b2d6e928"",
                     ""path"": ""<Keyboard>/a"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Reverse"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""binding"",
-                    ""id"": ""23fb7220-943c-4a5c-bdd6-ed5c81120cc2"",
-                    ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

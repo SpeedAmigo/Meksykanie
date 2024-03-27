@@ -14,8 +14,11 @@ public class Movement : MonoBehaviour
     public float speed;
     public float maxSpeed;
     public float turnSpeed;
+    private float _previousMaxSpeed;
     public bool isInReverse;
-    
+
+    public bool engineWorking = true;
+  
     public Rigidbody rb;
     private Switcher _switcher;
 
@@ -47,17 +50,39 @@ public class Movement : MonoBehaviour
     private void GearAction(InputAction.CallbackContext context)
     {
         int gearValue = int.Parse(context.action.name.Replace("Gear", ""));
-        maxSpeed = gearValue * 10;
+        float newMaxSpeed = gearValue * 10;
+
+        if (Mathf.Abs(newMaxSpeed - _previousMaxSpeed) > 10)
+        {
+            StartCoroutine(GearboxFailureCorutine());
+        }
+
+        maxSpeed = newMaxSpeed;
         isInReverse = false;
         speed = 600;
+
+        _previousMaxSpeed = newMaxSpeed;
     }
     private void Reverse(InputAction.CallbackContext context)
     {
-        isInReverse = true;
-        speed = -600;
-        maxSpeed = 10;
+        if (maxSpeed <= 10)
+        {
+            isInReverse = true;
+            speed = -600;
+            maxSpeed = 10;
+        }
     }
 
+    IEnumerator GearboxFailureCorutine()
+    {
+        Debug.Log("engine failure");
+        engineWorking = false;
+
+        yield return new WaitForSeconds(5);
+
+        Debug.Log("engine running again");
+        engineWorking = true;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -77,20 +102,24 @@ public class Movement : MonoBehaviour
 
     private void myInput()
     {
-        if (Input.GetMouseButton(0) && Input.GetMouseButton(1) && _onGround == true) //moving forward
+        if (engineWorking)
         {
-            rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
+            if (Input.GetMouseButton(0) && Input.GetMouseButton(1) && _onGround == true) //moving forward
+            {
+                rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
+            }
+
+            if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && _onGround == true) //Rotation to the right
+            {
+                rb.transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
+            }
+
+            if (Input.GetMouseButton(1) && !Input.GetMouseButton(0) && _onGround == true) //Rotation to the left 
+            {
+                rb.transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
+            }
         }
 
-        if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && _onGround == true) //Rotation to the right
-        {
-            rb.transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime);
-        }
-
-        if (Input.GetMouseButton(1) && !Input.GetMouseButton(0) && _onGround == true) //Rotation to the left 
-        {
-            rb.transform.Rotate(Vector3.up, -turnSpeed * Time.deltaTime);
-        }
     }
 
     public void SpeedLimit()
@@ -100,9 +129,6 @@ public class Movement : MonoBehaviour
         if (velocity.magnitude > maxSpeed)
         {
             rb.velocity = Vector3.ClampMagnitude(rb.velocity, maxSpeed);
-
-            //Vector3 limitVel = velocity.normalized * maxSpeed;
-            //rb.velocity = new Vector3(limitVel.x, 0f, limitVel.z);
         }
     }
     public void RaycastF()
@@ -110,12 +136,10 @@ public class Movement : MonoBehaviour
         if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.down), 1.5f))
         {
             _onGround = true;
-            //rb.drag = 20;
         }
         else
         {
             _onGround = false;
-            rb.drag = 0;
         }
     }
 }

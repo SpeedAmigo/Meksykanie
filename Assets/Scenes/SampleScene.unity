@@ -1290,7 +1290,9 @@ MonoBehaviour:
   speed: 600
   maxSpeed: 10
   turnSpeed: 20
+  _previousMaxSpeed: 0
   isInReverse: 0
+  gearboxWorking: 1
   rb: {fileID: 0}
 --- !u!114 &1397280181
 MonoBehaviour:
@@ -1337,7 +1339,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: Gears
+  m_DefaultActionMap: f70e4022-a33d-4d1c-8b52-b92c3615d650
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1495240465
