@@ -18,7 +18,8 @@ public class Movement : MonoBehaviour
     public bool isInReverse;
 
     public bool engineWorking = true;
-  
+
+    public RestartUIScript restartUIScript;
     public Rigidbody rb;
     private Switcher _switcher;
 
@@ -77,11 +78,14 @@ public class Movement : MonoBehaviour
     {
         Debug.Log("engine failure");
         engineWorking = false;
+        restartUIScript.gameObject.SetActive(true);
+        StartCoroutine(restartUIScript.ImageFill());
 
         yield return new WaitForSeconds(5);
 
         Debug.Log("engine running again");
         engineWorking = true;
+        restartUIScript.gameObject.SetActive(false);
     }
 
     // Start is called before the first frame update
