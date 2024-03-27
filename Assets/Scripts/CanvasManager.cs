@@ -56,7 +56,7 @@ public class CanvasManager : MonoBehaviour
         {
             handleUI.transform.localPosition = new Vector3(-240, -140, 0);
         }
-        if (movement.speed == -600)
+        if (movement.acceleration == -600)
         {
             handleUI.transform.localPosition = new Vector3(-313, -140, 0);
         }

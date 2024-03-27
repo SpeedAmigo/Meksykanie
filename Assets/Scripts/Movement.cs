@@ -11,7 +11,7 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public bool _onGround;
-    public float speed;
+    public float acceleration;
     public float maxSpeed;
     public float turnSpeed;
     private float _previousMaxSpeed;
@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
 
         maxSpeed = newMaxSpeed;
         isInReverse = false;
-        speed = 600;
+        acceleration = 600;
 
         _previousMaxSpeed = newMaxSpeed;
     }
@@ -68,7 +68,7 @@ public class Movement : MonoBehaviour
         if (maxSpeed <= 10)
         {
             isInReverse = true;
-            speed = -600;
+            acceleration = -600;
             maxSpeed = 10;
         }
     }
@@ -106,7 +106,7 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && Input.GetMouseButton(1) && _onGround == true) //moving forward
             {
-                rb.AddRelativeForce(Vector3.forward * speed, ForceMode.Force);
+                rb.AddRelativeForce(Vector3.forward * acceleration, ForceMode.Force);
             }
 
             if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && _onGround == true) //Rotation to the right
