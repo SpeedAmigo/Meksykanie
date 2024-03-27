@@ -241,6 +241,37 @@ MonoBehaviour:
   switcherUI: {fileID: 447321774}
   handleUI: {fileID: 1908926817}
   movement: {fileID: 1397280180}
+--- !u!1 &8727965
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8727966}
+  m_Layer: 0
+  m_Name: ProjectileSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8727966
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8727965}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.068, y: 0.053, z: 3.2952}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1560943835}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &251561598
 GameObject:
   m_ObjectHideFlags: 0
@@ -563,7 +594,7 @@ GameObject:
   - component: {fileID: 454940663}
   - component: {fileID: 454940664}
   m_Layer: 0
-  m_Name: Hull2
+  m_Name: Hull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -709,7 +740,7 @@ GameObject:
   m_Component:
   - component: {fileID: 639756940}
   m_Layer: 0
-  m_Name: Turret2
+  m_Name: Turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1290,9 +1321,8 @@ MonoBehaviour:
   speed: 600
   maxSpeed: 10
   turnSpeed: 20
-  _previousMaxSpeed: 0
   isInReverse: 0
-  gearboxWorking: 1
+  engineWorking: 1
   rb: {fileID: 0}
 --- !u!114 &1397280181
 MonoBehaviour:
@@ -1339,7 +1369,7 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
-  m_DefaultActionMap: f70e4022-a33d-4d1c-8b52-b92c3615d650
+  m_DefaultActionMap: Gears
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
 --- !u!1 &1495240465
@@ -1385,7 +1415,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1560943835}
   m_Layer: 0
-  m_Name: CanonPivot2
+  m_Name: CanonPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1405,6 +1435,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 771413326}
+  - {fileID: 8727966}
   m_Father: {fileID: 639756940}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1605076851
