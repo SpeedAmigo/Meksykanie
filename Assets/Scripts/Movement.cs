@@ -60,7 +60,7 @@ public class Movement : MonoBehaviour
 
         maxSpeed = newMaxSpeed;
         isInReverse = false;
-        acceleration = 600;
+        acceleration = 300000;
 
         _previousMaxSpeed = newMaxSpeed;
     }
@@ -69,7 +69,7 @@ public class Movement : MonoBehaviour
         if (maxSpeed <= 10)
         {
             isInReverse = true;
-            acceleration = -600;
+            acceleration = -300000;
             maxSpeed = 10;
         }
     }
@@ -110,7 +110,7 @@ public class Movement : MonoBehaviour
         {
             if (Input.GetMouseButton(0) && Input.GetMouseButton(1) && _onGround == true) //moving forward
             {
-                rb.AddRelativeForce(Vector3.forward * acceleration, ForceMode.Force);
+                rb.AddRelativeForce(Vector3.forward * acceleration * Time.deltaTime, ForceMode.Force);
             }
 
             if (Input.GetMouseButton(0) && !Input.GetMouseButton(1) && _onGround == true) //Rotation to the right
