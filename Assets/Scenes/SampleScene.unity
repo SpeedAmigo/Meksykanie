@@ -3022,12 +3022,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79551d6d6a813cc47bf203549f073d08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vCamera: {fileID: 868132575}
+  vCamera: {fileID: 749671797}
   turret: {fileID: 639756939}
   canonPivot: {fileID: 1560943834}
-  cameraRotation: {x: 0, y: 0, z: 0, w: 0}
-  turretRotation: {x: 0, y: 0, z: 0, w: 0}
-  canonRotation: {x: 0, y: 0, z: 0, w: 0}
+  rotationSpeed: 30
 --- !u!114 &1397280182
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,11 +11,12 @@ public class TurretMovement : MonoBehaviour
     public GameObject turret;
     public GameObject canonPivot;
 
+    public float rotationSpeed = 50;
     float currentLift;
 
-    public Quaternion cameraRotation;
-    public Quaternion turretRotation;
-    public Quaternion canonRotation;
+    private Quaternion cameraRotation;
+    private Quaternion turretRotation;
+    private Quaternion canonRotation;
 
     // Update is called once per frame
     void Update()
@@ -30,12 +31,13 @@ public class TurretMovement : MonoBehaviour
     private void TurretRotation()
     {
         cameraRotation = vCamera.transform.localRotation;
+        turretRotation = turret.transform.rotation;
 
-        Vector3 eulerRotationCamera = cameraRotation.eulerAngles;
+        Quaternion targetRotation = Quaternion.Euler(0f, cameraRotation.eulerAngles.y, 0f);
 
-        turret.transform.localRotation = Quaternion.Euler(0, eulerRotationCamera.y, 0);
+        float step = rotationSpeed * Time.deltaTime;
+        turret.transform.rotation = Quaternion.RotateTowards(turretRotation, targetRotation, step);
     }
-
     private void CanonLift(float lift)
     {
         currentLift = Mathf.Clamp(lift, -10, 20);
