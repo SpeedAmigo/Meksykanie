@@ -2934,9 +2934,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1397280178}
-  - component: {fileID: 1397280180}
   - component: {fileID: 1397280179}
+  - component: {fileID: 1397280180}
   - component: {fileID: 1397280181}
+  - component: {fileID: 1397280183}
   - component: {fileID: 1397280182}
   m_Layer: 0
   m_Name: Tank
@@ -3056,6 +3057,21 @@ MonoBehaviour:
   m_DefaultActionMap: Gears
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1397280183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397280177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32164d5248ae5924d9c5e3f3445ed5cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawnPoint: {fileID: 8727966}
+  projectileScript: {fileID: -6683419166242037168, guid: 578b723209c3a00488614a1d991e2e41, type: 3}
+  projectileSpeed: 200
 --- !u!1 &1487452294
 GameObject:
   m_ObjectHideFlags: 0
