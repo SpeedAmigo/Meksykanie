@@ -1,13 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Transactions;
 using UnityEngine;
 using UnityEngine.Pool;
 
 public class CanonScript : MonoBehaviour
 {
+    TrajectoryPredictor trajectoryPredictor;
+
+    [SerializeField]
+    Rigidbody projectileRb;
+
+    [SerializeField, Range(0.0f, 200f)]
+    float force;
+
     public Transform projectileSpawnPoint;
     public ProjectileScript projectileScript;
-    public float projectileSpeed = 100;
+    //public float projectileSpeed = 100;
     public bool isReloaded = false;
 
     private ObjectPool<ProjectileScript> _pool;
@@ -43,9 +52,15 @@ public class CanonScript : MonoBehaviour
         Destroy(projectile.gameObject);
     }
 
+    private void OnEnable()
+    {
+        trajectoryPredictor = GetComponent<TrajectoryPredictor>();
+    }
+
     private void Update()
     {
         OnPlayerTrigger();
+        Predict();
     }
 
     private void Start()
@@ -53,6 +68,10 @@ public class CanonScript : MonoBehaviour
         StartCoroutine(ReloadCorutine());
     }
 
+    void Predict()
+    {
+        trajectoryPredictor.PredictProjectileTrajectory(ProjectileData());
+    }
     private IEnumerator ReloadCorutine()
     {
         Debug.Log("Reloading");
@@ -64,13 +83,27 @@ public class CanonScript : MonoBehaviour
         Debug.Log("Cannon reloaded");
     }
 
+    ProjectileProperties ProjectileData()
+    {
+        ProjectileProperties properties = new ProjectileProperties();
+        Rigidbody r = projectileRb.GetComponent<Rigidbody>();
+
+        properties.direction = projectileSpawnPoint.forward;
+        properties.initialPosition = projectileSpawnPoint.position;
+        properties.initialSpeed = force;
+        properties.mass = r.mass;
+        properties.drag = r.drag;
+
+        return properties;
+    }
+
     public void OnPlayerTrigger()
     {
         if (Input.GetKeyDown(KeyCode.Space) && isReloaded == true)
         {
             var projectile = _pool.Get();
 
-            projectile.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * projectileSpeed;
+            projectile.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * force;
 
             StartCoroutine(ReloadCorutine());
         }
