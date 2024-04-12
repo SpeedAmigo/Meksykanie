@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
@@ -34,7 +35,7 @@ public class TrajectoryPredictor : MonoBehaviour
 
         UpdateLineRender(maxPoints, (0, position));
 
-        for (int i = 0; i < maxPoints; i++)
+        for (int i = 1; i < maxPoints; i++)
         {
             velocity = CalculateNewVelocity(velocity, projectile.drag, increment);
             nextPosition = transform.position + velocity * increment;
