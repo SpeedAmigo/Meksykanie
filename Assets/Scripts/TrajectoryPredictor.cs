@@ -38,9 +38,9 @@ public class TrajectoryPredictor : MonoBehaviour
         for (int i = 1; i < maxPoints; i++)
         {
             velocity = CalculateNewVelocity(velocity, projectile.drag, increment);
-            nextPosition = transform.position + velocity * increment;
+            nextPosition = position + velocity * increment;
 
-            overLap = Vector3.Distance(nextPosition, position) * rayOverlap;
+            overLap = Vector3.Distance(position, nextPosition) * rayOverlap;
 
             if (Physics.Raycast(position, velocity.normalized, out RaycastHit hit, overLap))
             {

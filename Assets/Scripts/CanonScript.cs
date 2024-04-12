@@ -55,6 +55,11 @@ public class CanonScript : MonoBehaviour
     private void OnEnable()
     {
         trajectoryPredictor = GetComponent<TrajectoryPredictor>();
+
+        if (projectileSpawnPoint == null)
+        {
+            projectileSpawnPoint = transform;
+        }
     }
 
     private void Update()
@@ -103,7 +108,8 @@ public class CanonScript : MonoBehaviour
         {
             var projectile = _pool.Get();
 
-            projectile.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * force;
+            //projectile.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * force;
+            projectile.GetComponent<Rigidbody>().AddForce(projectileSpawnPoint.forward * force, ForceMode.Impulse);
 
             StartCoroutine(ReloadCorutine());
         }
