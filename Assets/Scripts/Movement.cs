@@ -11,7 +11,10 @@ using UnityEngine.InputSystem;
 public class Movement : MonoBehaviour
 {
     public bool _onGround;
+
+    [SerializeField, Range(1, 10000)]
     public float acceleration;
+
     public float maxSpeed;
     public float turnSpeed;
     private float _previousMaxSpeed;
@@ -21,31 +24,31 @@ public class Movement : MonoBehaviour
 
     public RestartUIScript restartUIScript;
     public Rigidbody rb;
-    private Switcher _switcher;
+    private Inputs _inputs;
 
     private void Awake()
     {
-        _switcher = new Switcher();
+        _inputs = new Inputs();
     }
 
     private void OnEnable()
     {
-        _switcher.Enable();
-        _switcher.Gears.Gear1.performed += GearAction;
-        _switcher.Gears.Gear2.performed += GearAction;
-        _switcher.Gears.Gear3.performed += GearAction;
-        _switcher.Gears.Gear4.performed += GearAction;
-        _switcher.Gears.Reverse.performed += Reverse;
+        _inputs.Enable();
+        _inputs.Gears.Gear1.performed += GearAction;
+        _inputs.Gears.Gear2.performed += GearAction;
+        _inputs.Gears.Gear3.performed += GearAction;
+        _inputs.Gears.Gear4.performed += GearAction;
+        _inputs.Gears.Reverse.performed += Reverse;
     }
 
     private void OnDisable()
     {
-        _switcher.Disable();
-        _switcher.Gears.Gear1.performed -= GearAction;
-        _switcher.Gears.Gear2.performed -= GearAction;
-        _switcher.Gears.Gear3.performed -= GearAction;
-        _switcher.Gears.Gear4.performed -= GearAction;
-        _switcher.Gears.Reverse.performed -= Reverse;
+        _inputs.Disable();
+        _inputs.Gears.Gear1.performed -= GearAction;
+        _inputs.Gears.Gear2.performed -= GearAction;
+        _inputs.Gears.Gear3.performed -= GearAction;
+        _inputs.Gears.Gear4.performed -= GearAction;
+        _inputs.Gears.Reverse.performed -= Reverse;
     }
 
     private void GearAction(InputAction.CallbackContext context)

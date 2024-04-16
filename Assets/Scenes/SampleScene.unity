@@ -1746,6 +1746,68 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 601764227}
   m_SourcePrefab: {fileID: 100100000, guid: 3a8b59f093017ca4c85bbcd3f542db2a, type: 3}
+--- !u!1 &545058929
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 545058931}
+  - component: {fileID: 545058930}
+  m_Layer: 0
+  m_Name: AmmoInputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &545058930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545058929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 0374e576a168864419de948eca82e331, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Ammo
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!4 &545058931
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 545058929}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 22.065792, y: -3.6636944, z: -5.0906725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &601764225 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 3a8b59f093017ca4c85bbcd3f542db2a, type: 3}
@@ -3186,6 +3248,7 @@ GameObject:
   - component: {fileID: 1397280181}
   - component: {fileID: 1397280184}
   - component: {fileID: 1397280183}
+  - component: {fileID: 1397280186}
   - component: {fileID: 1397280182}
   - component: {fileID: 1397280185}
   m_Layer: 0
@@ -3253,7 +3316,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _onGround: 0
-  acceleration: 0
+  acceleration: 600
   maxSpeed: 10
   turnSpeed: 20
   isInReverse: 0
@@ -3319,7 +3382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectileRb: {fileID: 1443639149276594955, guid: 578b723209c3a00488614a1d991e2e41, type: 3}
-  force: 200
+  force: 50
   projectileSpawnPoint: {fileID: 8727966}
   projectileScript: {fileID: -6683419166242037168, guid: 578b723209c3a00488614a1d991e2e41, type: 3}
   isReloaded: 0
@@ -3393,7 +3456,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.056518555
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -3444,6 +3507,19 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
+--- !u!114 &1397280186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397280177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e42c3cb34aa3848b45e30cadd67af7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabRb: {fileID: 1443639149276594955, guid: 578b723209c3a00488614a1d991e2e41, type: 3}
 --- !u!1 &1487452294
 GameObject:
   m_ObjectHideFlags: 0
@@ -4399,3 +4475,4 @@ SceneRoots:
   - {fileID: 6499926}
   - {fileID: 251561601}
   - {fileID: 923713410}
+  - {fileID: 545058931}

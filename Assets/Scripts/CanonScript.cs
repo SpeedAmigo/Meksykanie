@@ -7,7 +7,7 @@ using UnityEngine.Pool;
 public class CanonScript : MonoBehaviour
 {
     TrajectoryPredictor trajectoryPredictor;
-
+    
     [SerializeField]
     Rigidbody projectileRb;
 
@@ -16,7 +16,6 @@ public class CanonScript : MonoBehaviour
 
     public Transform projectileSpawnPoint;
     public ProjectileScript projectileScript;
-    //public float projectileSpeed = 100;
     public bool isReloaded = false;
 
     private ObjectPool<ProjectileScript> _pool;
@@ -45,6 +44,7 @@ public class CanonScript : MonoBehaviour
     private void OnPutBackInPool(ProjectileScript projectile)
     {
         projectile.gameObject.SetActive(false);
+        projectile.GetComponent<Rigidbody>().velocity = Vector3.zero; // reloads projectile velocity because without it projectile would go in the wrong direction
     }
 
     private void OnDestroyProjectile(ProjectileScript projectile)
@@ -60,17 +60,6 @@ public class CanonScript : MonoBehaviour
         {
             projectileSpawnPoint = transform;
         }
-    }
-
-    private void Update()
-    {
-        OnPlayerTrigger();
-        Predict();
-    }
-
-    private void Start()
-    {
-        StartCoroutine(ReloadCorutine());
     }
 
     void Predict()
@@ -108,10 +97,20 @@ public class CanonScript : MonoBehaviour
         {
             var projectile = _pool.Get();
 
-            //projectile.GetComponent<Rigidbody>().velocity = projectileSpawnPoint.forward * force;
             projectile.GetComponent<Rigidbody>().AddForce(projectileSpawnPoint.forward * force, ForceMode.Impulse);
 
             StartCoroutine(ReloadCorutine());
         }
     }
+    private void Update()
+    {
+        OnPlayerTrigger();
+        Predict();
+    }
+
+    private void Start()
+    {
+        StartCoroutine(ReloadCorutine());
+    }
+
 }
