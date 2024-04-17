@@ -15,8 +15,6 @@ public class FieldOfView : MonoBehaviour
 
     public EnemyProperties enemyProperties;
 
-    //public bool canSeePlayer;
-
     private void Start()
     {
         StartCoroutine(FOVcorutine());

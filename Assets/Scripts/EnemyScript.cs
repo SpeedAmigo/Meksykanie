@@ -37,7 +37,7 @@ public class EnemyScript : MonoBehaviour
 
     private void OnDisable()
     {
-        enemyProperties.ResetData();
+        enemyProperties.ResetData(); // remove all data from asset 
     }
 
     // Start is called before the first frame update

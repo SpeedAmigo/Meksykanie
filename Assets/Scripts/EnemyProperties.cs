@@ -16,7 +16,7 @@ public class EnemyProperties : ScriptableObject
     public Vector3 currentEnemyPosition;
 
 
-    public void ResetData()
+    public void ResetData() // remove all data from asset
     {
         enemyHealth = defaultEnemyHealth;
         enemySpeed = defaultEnemySpeed;
