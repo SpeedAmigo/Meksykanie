@@ -12,3 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 741e7795f2d5b63439da5ee551f44236, type: 3}
   m_Name: New Enemy Properties
   m_EditorClassIdentifier: 
+  defaultEnemyHealth: 0
+  defaultEnemySpeed: 0
+  defaultCanSeePlayer: 0
+  enemyHealth: 0
+  enemySpeed: 0
+  detectionRange: 0
+  canSeePlayer: 0
+  currentEnemyPosition: {x: -30.106728, y: 2.4266667, z: 25.593847}

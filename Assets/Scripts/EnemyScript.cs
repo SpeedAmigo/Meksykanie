@@ -23,11 +23,21 @@ public class EnemyScript : MonoBehaviour
     {
         _agent.isStopped = false;
         _agent.SetDestination(target.transform.position);
+
+        if (DistanceCalculation() <= 10)
+        {
+            StopEnemy();
+        }
     }
 
     public void StopEnemy()
     {
        _agent.isStopped = true;
+    }
+
+    private void OnDisable()
+    {
+        enemyProperties.ResetData();
     }
 
     // Start is called before the first frame update
@@ -41,13 +51,13 @@ public class EnemyScript : MonoBehaviour
     {
         enemyProperties.currentEnemyPosition = transform.position;
 
-        if (DistanceCalculation() <= 40)
+        if (enemyProperties.canSeePlayer == true)
         {
-            StopEnemy();
+            MoveToTarget();
         }
         else
         {
-            MoveToTarget();
+            StopEnemy();
         }
 
     }

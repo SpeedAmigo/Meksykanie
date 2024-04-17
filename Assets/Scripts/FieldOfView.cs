@@ -13,7 +13,7 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask[] obstacleMasks;
 
-    EnemyProperties enemyProperties;
+    public EnemyProperties enemyProperties;
 
     //public bool canSeePlayer;
 
@@ -46,7 +46,7 @@ public class FieldOfView : MonoBehaviour
             {
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMasks.Length))
+                if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMasks[0]))
                     enemyProperties.canSeePlayer = true;
                 else
                     enemyProperties.canSeePlayer = false;
