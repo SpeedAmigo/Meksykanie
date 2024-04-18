@@ -7,7 +7,12 @@ public class AmmoSelector : MonoBehaviour
 {
     private Inputs _inputs;
     public Rigidbody prefabRb;
-    public ProjectileProperties properties = new ProjectileProperties();
+
+    public GameObject[] gameObjects;
+
+    //public ProjectileProperties properties = new ProjectileProperties();
+
+    public ProjectileProperties properties;
 
     private void Awake()
     {
@@ -22,23 +27,52 @@ public class AmmoSelector : MonoBehaviour
         _inputs.Ammo.Flammable.performed += Flammable;
     }
 
-    private void Regular(InputAction.CallbackContext context)
+    public void Regular(InputAction.CallbackContext context)
     {
         properties.Regular(prefabRb);
+        properties.ammoType = 1;
+        ShowRegularAmmo();
     }
 
     public void Explosive(InputAction.CallbackContext context)
     {
         properties.Explosive(prefabRb);
+        properties.ammoType = 2;
+        ShowExplosiveAmmo();
     }
 
     public void Flammable(InputAction.CallbackContext context)
     {
         properties.Flammable(prefabRb);
+        properties.ammoType = 3;
+        ShowFlammableAmmo();
+    }
+
+    private void ShowRegularAmmo()
+    {
+        gameObjects[0].SetActive(true);
+        gameObjects[1].SetActive(false);
+        gameObjects[2].SetActive(false);
+    }
+
+    private void ShowExplosiveAmmo()
+    {
+        gameObjects[0].SetActive(false);
+        gameObjects[1].SetActive(true);
+        gameObjects[2].SetActive(false);
+    }
+
+    private void ShowFlammableAmmo()
+    {
+        gameObjects[0].SetActive(false);
+        gameObjects[1].SetActive(false);
+        gameObjects[2].SetActive(true);
     }
 
     private void Start()
     {
         properties.Regular(prefabRb);
+        properties.ammoType = 1;
+        ShowRegularAmmo();
     }
 }

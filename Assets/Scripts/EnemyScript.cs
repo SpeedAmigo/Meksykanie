@@ -11,6 +11,7 @@ public class EnemyScript : MonoBehaviour
     private NavMeshAgent _agent;
 
     public EnemyProperties enemyProperties;
+    public ProjectileProperties projectileProperties;
 
     public float DistanceCalculation()
     {
@@ -33,6 +34,16 @@ public class EnemyScript : MonoBehaviour
     public void StopEnemy()
     {
        _agent.isStopped = true;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Projectile") && projectileProperties.ammoType == 2)
+        {
+            Debug.Log("Enemy hit!");
+
+            Destroy(gameObject);
+        }
     }
 
     private void OnDisable()
