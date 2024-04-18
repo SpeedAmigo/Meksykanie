@@ -5,11 +5,11 @@ using UnityEngine;
 [CreateAssetMenu]
 public class EnemyProperties : ScriptableObject
 {
-    [SerializeField] float defaultEnemyHealth;
+    [SerializeField] float defaultEnemyHealth = 10;
     [SerializeField] float defaultEnemySpeed;
     [SerializeField] bool defaultCanSeePlayer = false;
 
-    public float enemyHealth;
+    public float enemyHealth = 10;
     public float enemySpeed;
     public float detectionRange;
     public bool canSeePlayer;

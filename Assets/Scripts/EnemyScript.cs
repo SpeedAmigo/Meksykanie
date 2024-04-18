@@ -11,7 +11,6 @@ public class EnemyScript : MonoBehaviour
     private NavMeshAgent _agent;
 
     public EnemyProperties enemyProperties;
-    public ProjectileProperties projectileProperties;
 
     public float DistanceCalculation()
     {
@@ -30,25 +29,14 @@ public class EnemyScript : MonoBehaviour
             StopEnemy();
         }
     }
-
     public void StopEnemy()
     {
        _agent.isStopped = true;
     }
 
-    public void OnCollisionEnter(Collision collision)
+    public void OnDisable()
     {
-        if (collision.gameObject.CompareTag("Projectile") && projectileProperties.ammoType == 2)
-        {
-            Debug.Log("Enemy hit!");
-
-            Destroy(gameObject);
-        }
-    }
-
-    private void OnDisable()
-    {
-        enemyProperties.ResetData(); // remove all data from asset 
+        enemyProperties.ResetData();
     }
 
     // Start is called before the first frame update
