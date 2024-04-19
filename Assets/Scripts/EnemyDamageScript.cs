@@ -5,29 +5,15 @@ using UnityEngine;
 public class EnemyDamageScript : MonoBehaviour
 {
     public EnemyProperties enemyProperties;
-    public ProjectileProperties projectileProperties;
 
-    public void OnCollisionEnter(Collision collision)
+    public void TakeDamage(float damageAmount)
     {
-        if (collision.gameObject.CompareTag("Projectile"))
+        enemyProperties.enemyHealth -= damageAmount;
+
+        if (enemyProperties.enemyHealth <= 0)
         {
-            if (enemyProperties.enemyHealth <= 0)
-            {
-                Die();
-            }
-            else
-            {
-                TakeDamage(projectileProperties.ammoType, projectileProperties.ammoDamage);
-            }
+            Die();
         }
-    }
-
-    public void TakeDamage(int type, float damage)
-    {
-        projectileProperties.ammoType = type;
-        projectileProperties.ammoDamage = damage;
-
-        enemyProperties.enemyHealth -= damage;
     }
 
     public void Die()

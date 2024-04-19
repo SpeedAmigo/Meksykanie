@@ -23,7 +23,7 @@ public class ProjectileProperties : ScriptableObject
         rb.mass = 0.25f;
         Debug.Log("you shoot regular ammo");
         ammoType = 1;
-        ammoDamage = 5;
+        ammoDamage = 10;
     }
 
     public void Explosive(Rigidbody rb)
@@ -38,6 +38,8 @@ public class ProjectileProperties : ScriptableObject
     {
         rb.mass = 0.5f;
         Debug.Log("you shoot flammable ammo");
+        ammoType = 3;
+        ammoDamage = 2;
     }
     private void OnDisable()
     {
