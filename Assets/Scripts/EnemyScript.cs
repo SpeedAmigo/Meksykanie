@@ -9,7 +9,6 @@ public class EnemyScript : MonoBehaviour
 {
     public GameObject target;
     private NavMeshAgent _agent;
-
     public EnemyProperties enemyProperties;
 
     public float DistanceCalculation()

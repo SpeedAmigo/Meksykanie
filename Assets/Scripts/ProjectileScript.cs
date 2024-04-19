@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using UnityEngine;
 using UnityEngine.Pool;
 
@@ -10,6 +11,7 @@ public class ProjectileScript : MonoBehaviour
     private ObjectPool<ProjectileScript> _pool;
     private Coroutine _corutine;
     private SphereCollider _triggerSphereCollider;
+    [SerializeField] GameObject flamePrefab;
 
     public ProjectileProperties properties;
 
@@ -35,6 +37,12 @@ public class ProjectileScript : MonoBehaviour
             enemyDamageScript.TakeDamage(properties.ammoDamage);
         }
 
+        else if (collision.gameObject.CompareTag("Ground") && properties.ammoType == 3)
+        {
+            Debug.Log("dziala");
+            Instantiate(flamePrefab, gameObject.transform.position, Quaternion.identity);
+        }
+
         _pool.Release(this);
     }
 
@@ -42,7 +50,6 @@ public class ProjectileScript : MonoBehaviour
     {
         if (other.gameObject.TryGetComponent<EnemyDamageScript>(out EnemyDamageScript enemyDamageScript))
         {
-            Debug.Log("dziala");
             enemyDamageScript.TakeDamage(properties.ammoDamage);
         }
     }
