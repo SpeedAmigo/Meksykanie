@@ -10,7 +10,7 @@ public class Star : MonoBehaviour
 
     private bool hasTarget;
     Vector3 targetPosition;
-    private float moveSpeed = 10f;
+    private float moveSpeed = 20f;
 
     public void SetTarget(Vector3 position)
     {

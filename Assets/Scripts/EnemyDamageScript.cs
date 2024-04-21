@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyDamageScript : MonoBehaviour
 {
     public ParticleSystem particle;
+    public GameObject starPrefab;
 
     public EnemyProperties enemyProperties;
 
@@ -22,6 +23,7 @@ public class EnemyDamageScript : MonoBehaviour
     {
         Destroy(gameObject);
         Instantiate(particle, gameObject.transform.position, Quaternion.identity);
+        Instantiate(starPrefab, gameObject.transform.position, Quaternion.identity);
     }
 
     public void Start()
