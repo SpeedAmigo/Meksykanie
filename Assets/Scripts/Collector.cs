@@ -13,5 +13,10 @@ public class Collector : MonoBehaviour
             Destroy(other.gameObject);
             playerProperties.starCount += 75;
         }
+
+         if (other.gameObject.TryGetComponent<EnemyDamageScript>(out EnemyDamageScript enemyDamageScript))
+        {
+            enemyDamageScript.TakeDamage(10);
+        }
     }
 }
