@@ -13,4 +13,8 @@ MonoBehaviour:
   m_Name: New Player Properties
   m_EditorClassIdentifier: 
   defaultStarCount: 0
-  starCount: 0
+  defaultExplosivesCount: 0
+  defaultFlammableCount: 0
+  starCount: 250
+  explosivesCount: 60
+  flammableCount: 60

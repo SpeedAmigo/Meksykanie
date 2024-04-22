@@ -8,7 +8,10 @@ using UnityEngine;
 [CreateAssetMenu]
 public class ProjectileProperties : ScriptableObject
 {
+    public PlayerProperties playerProperties;
+
     [SerializeField] int defaultAmmoType = 1;
+    [SerializeField] bool defaultHasAmmo = false;
 
     public Vector3 direction;
     public Vector3 initialPosition;
@@ -17,6 +20,7 @@ public class ProjectileProperties : ScriptableObject
     public float drag;
     public int ammoType;
     public float ammoDamage;
+    public bool hasAmmo;
 
     public void Regular(Rigidbody rb)
     {
@@ -24,6 +28,7 @@ public class ProjectileProperties : ScriptableObject
         Debug.Log("you shoot regular ammo");
         ammoType = 1;
         ammoDamage = 10;
+        hasAmmo = true;
     }
 
     public void Explosive(Rigidbody rb)
@@ -32,6 +37,15 @@ public class ProjectileProperties : ScriptableObject
         Debug.Log("you shoot explosive ammo");
         ammoType = 2;
         ammoDamage = 10;
+        if (playerProperties.explosivesCount <= 0)
+        {
+            hasAmmo = false;
+        }
+        else
+        {
+            hasAmmo = true;
+            playerProperties.explosivesCount--;
+        }
     }
 
     public void Flammable(Rigidbody rb)
@@ -40,6 +54,15 @@ public class ProjectileProperties : ScriptableObject
         Debug.Log("you shoot flammable ammo");
         ammoType = 3;
         ammoDamage = 2;
+        if (playerProperties.flammableCount <= 0)
+        {
+            hasAmmo = false;
+        }
+        else
+        {
+            hasAmmo = true;
+            playerProperties.flammableCount--;
+        }
     }
     private void OnDisable()
     {
@@ -49,6 +72,7 @@ public class ProjectileProperties : ScriptableObject
     private void ResetData()
     {
         ammoType = defaultAmmoType;
+        hasAmmo = defaultHasAmmo;
     }
 
 }

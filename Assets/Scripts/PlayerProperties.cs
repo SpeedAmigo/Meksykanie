@@ -6,8 +6,12 @@ using UnityEngine;
 public class PlayerProperties : ScriptableObject
 {
     [SerializeField] int defaultStarCount = 0;
+    [SerializeField] int defaultExplosivesCount = 0;
+    [SerializeField] int defaultFlammableCount = 0;  
 
     public int starCount;
+    public int explosivesCount;
+    public int flammableCount;
 
     public void OnDisable()
     {
@@ -17,5 +21,7 @@ public class PlayerProperties : ScriptableObject
     public void ResetData()
     {
         starCount = defaultStarCount;
+        explosivesCount = defaultExplosivesCount;
+        flammableCount = defaultFlammableCount;
     }
 }

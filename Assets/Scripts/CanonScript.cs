@@ -16,6 +16,7 @@ public class CanonScript : MonoBehaviour
 
     public Transform projectileSpawnPoint;
     public ProjectileScript projectileScript;
+    public ProjectileProperties projectileProperties;
     public bool isReloaded = false;
 
     private ObjectPool<ProjectileScript> _pool;
@@ -93,7 +94,7 @@ public class CanonScript : MonoBehaviour
 
     public void OnPlayerTrigger()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isReloaded == true)
+        if (Input.GetKeyDown(KeyCode.Space) && isReloaded == true && projectileProperties.hasAmmo == true)
         {
             var projectile = _pool.Get();
 

@@ -12,9 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c43d96373301adc4087586e1b94249ec, type: 3}
   m_Name: New Projectile Properties
   m_EditorClassIdentifier: 
+  playerProperties: {fileID: 11400000, guid: c971d753cd146fd408c0c3a828307f2e, type: 2}
+  defaultAmmoType: 1
+  defaultHasAmmo: 0
   direction: {x: 0, y: 0, z: 0}
   initialPosition: {x: 0, y: 0, z: 0}
   initialSpeed: 0
   mass: 0
   drag: 0
-  ammoType: 0
+  ammoType: 1
+  ammoDamage: 10
+  hasAmmo: 0
