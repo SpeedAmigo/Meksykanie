@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8b6d14923d4aad941a42e59444ac5ef2, type: 3}
   m_Name: New Player Properties
   m_EditorClassIdentifier: 
-  defaultStarCount: 0
+  defaultStarCount: 100
   defaultExplosivesCount: 0
   defaultFlammableCount: 0
-  starCount: 250
-  explosivesCount: 60
-  flammableCount: 60
+  starCount: 0
+  explosivesCount: 28
+  flammableCount: 9
