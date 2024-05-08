@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 6168176277820626292}
   - component: {fileID: 5337103321314409406}
   - component: {fileID: 1666276240468540427}
-  - component: {fileID: 5874908162340143389}
   - component: {fileID: 3552825514229478781}
   m_Layer: 0
   m_Name: Enemy
@@ -33,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 5103232664563628794}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22, y: 2.9, z: 22.8}
+  m_LocalPosition: {x: -20.48, y: 2.9, z: 14.04}
   m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -149,8 +148,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d530baad9461c5e4783f0843423c3386, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 40
+  angle: 360
+  player: {fileID: 0}
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 64
+  obstacleMasks:
+  - serializedVersion: 2
+    m_Bits: 128
+  canSeePlayer: 0
   target: {fileID: 0}
-  enemyProperties: {fileID: 11400000, guid: 1fa3271aedbd2dd41adce583670318d7, type: 2}
 --- !u!114 &1666276240468540427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,30 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cdf28ecef6c6ab46abe577fb83f7e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  particle: {fileID: 0}
-  starPrefab: {fileID: 0}
-  enemyProperties: {fileID: 11400000, guid: 1fa3271aedbd2dd41adce583670318d7, type: 2}
---- !u!114 &5874908162340143389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5103232664563628794}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d39a338ee8df6c745af563a01828fe16, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 40
-  angle: 360
-  player: {fileID: 0}
-  targetMask:
-    serializedVersion: 2
-    m_Bits: 64
-  obstacleMasks:
-  - serializedVersion: 2
-    m_Bits: 128
+  particle: {fileID: 3548588485384254794, guid: 2f9e7dc163581394da1e00b561eed65d, type: 3}
+  starPrefab: {fileID: 4779849780777794844, guid: f85686929c84b8f47ac29044b90f3f79, type: 3}
   enemyProperties: {fileID: 11400000, guid: 1fa3271aedbd2dd41adce583670318d7, type: 2}
 --- !u!195 &3552825514229478781
 NavMeshAgent:

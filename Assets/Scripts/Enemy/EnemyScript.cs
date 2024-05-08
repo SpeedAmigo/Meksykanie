@@ -5,11 +5,11 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyScript : MonoBehaviour
+public class EnemyScript : FieldOfView
 {
     public GameObject target;
     private NavMeshAgent _agent;
-    public EnemyProperties enemyProperties;
+    //public EnemyProperties enemyProperties;
 
     public float DistanceCalculation()
     {
@@ -33,23 +33,25 @@ public class EnemyScript : MonoBehaviour
        _agent.isStopped = true;
     }
 
-    public void OnDisable()
-    {
-        enemyProperties.ResetData();
-    }
+    //public void OnDisable()
+    //{
+    //    enemyProperties.ResetData();
+    //}
 
     // Start is called before the first frame update
     void Start()
     {
         _agent = GetComponent<NavMeshAgent>();
+
+        StartCoroutine(FOVcorutine());
     }
 
     // Update is called once per frame
     void Update()
     {
-        enemyProperties.currentEnemyPosition = transform.position;
+        //enemyProperties.currentEnemyPosition = transform.position;
 
-        if (enemyProperties.canSeePlayer == true)
+        if (canSeePlayer == true)
         {
             MoveToTarget();
         }

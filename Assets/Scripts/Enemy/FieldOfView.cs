@@ -13,14 +13,14 @@ public class FieldOfView : MonoBehaviour
     public LayerMask targetMask;
     public LayerMask[] obstacleMasks;
 
-    public EnemyProperties enemyProperties;
+    public  bool canSeePlayer;
 
     private void Start()
     {
         StartCoroutine(FOVcorutine());
     }
 
-    private IEnumerator FOVcorutine()
+    public IEnumerator FOVcorutine()
     {
         WaitForSeconds wait = new WaitForSeconds(0.2f);
 
@@ -45,16 +45,16 @@ public class FieldOfView : MonoBehaviour
                 float distanceToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstacleMasks[0]))
-                    enemyProperties.canSeePlayer = true;
+                    canSeePlayer = true;
                 else
-                    enemyProperties.canSeePlayer = false;
+                    canSeePlayer = false;
             }
             else
-                enemyProperties.canSeePlayer = false;
+                canSeePlayer = false;
         }
-        else if (enemyProperties.canSeePlayer) 
+        else if (canSeePlayer) 
         {
-            enemyProperties.canSeePlayer = false;
+            canSeePlayer = false;
         }
     }
 }

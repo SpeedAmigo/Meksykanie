@@ -7,13 +7,13 @@ public class EnemyDamageScript : MonoBehaviour
     public ParticleSystem particle;
     public GameObject starPrefab;
 
-    public EnemyProperties enemyProperties;
+    public EnemyProperties properties = new EnemyProperties();
 
     public void TakeDamage(float damageAmount)
     {
-        enemyProperties.enemyHealth -= damageAmount;
+        properties.enemyHealth -= damageAmount;
 
-        if (enemyProperties.enemyHealth <= 0)
+        if (properties.enemyHealth <= 0)
         {
             Die();
         }
@@ -28,6 +28,6 @@ public class EnemyDamageScript : MonoBehaviour
 
     public void Start()
     {
-        enemyProperties.enemyHealth = 10;
+        properties.enemyHealth = 10;
     }
 }
