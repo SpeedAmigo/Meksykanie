@@ -95,7 +95,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193823560644722968}
   serializedVersion: 4
-  m_Mass: 0.25
+  m_Mass: 1
   m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -172,4 +172,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 3
   flamePrefab: {fileID: 2729557296141428490, guid: 2a5a07eb327171b4c97eaaf59dbc5a03, type: 3}
-  properties: {fileID: 11400000, guid: 934895a4f15cd6645b13ccea4ba0d677, type: 2}
+  type: 0

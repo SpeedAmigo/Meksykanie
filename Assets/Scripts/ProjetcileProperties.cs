@@ -6,7 +6,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class ProjectileProperties : ScriptableObject
+public class ProjectileProperties
 {
     public PlayerProperties playerProperties;
 
@@ -20,23 +20,24 @@ public class ProjectileProperties : ScriptableObject
     public float drag;
     public int ammoType;
     public float ammoDamage;
-    public bool hasAmmo;
+    //public bool hasAmmo;
 
     public void Regular(Rigidbody rb)
     {
         rb.mass = 0.25f;
-        Debug.Log("you shoot regular ammo");
-        ammoType = 1;
+        //Debug.Log("you shoot regular ammo");
+      //  ammoType = 1;
         ammoDamage = 10;
-        hasAmmo = true;
+       // hasAmmo = true;
     }
 
     public void Explosive(Rigidbody rb)
     {
         rb.mass = 1f;
-        Debug.Log("you shoot explosive ammo");
-        ammoType = 2;
+        //Debug.Log("you shoot explosive ammo");
+       // ammoType = 2;
         ammoDamage = 10;
+        /*
         if (playerProperties.explosivesCount <= 0)
         {
             hasAmmo = false;
@@ -46,14 +47,16 @@ public class ProjectileProperties : ScriptableObject
             hasAmmo = true;
             playerProperties.explosivesCount--;
         }
+        */
     }
 
     public void Flammable(Rigidbody rb)
     {
         rb.mass = 0.5f;
-        Debug.Log("you shoot flammable ammo");
-        ammoType = 3;
+        //Debug.Log("you shoot flammable ammo");
+       // ammoType = 3;
         ammoDamage = 2;
+        /*
         if (playerProperties.flammableCount <= 0)
         {
             hasAmmo = false;
@@ -63,7 +66,9 @@ public class ProjectileProperties : ScriptableObject
             hasAmmo = true;
             playerProperties.flammableCount--;
         }
+        */
     }
+    /*
     private void OnDisable()
     {
         ResetData();
@@ -74,5 +79,5 @@ public class ProjectileProperties : ScriptableObject
         ammoType = defaultAmmoType;
         hasAmmo = defaultHasAmmo;
     }
-
+    */
 }

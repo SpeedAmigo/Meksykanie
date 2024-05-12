@@ -9,48 +9,48 @@ public class ProjectileScript : MonoBehaviour
     public float life = 3f;
 
     private ObjectPool<ProjectileScript> _pool;
-    private Coroutine _corutine;
     private SphereCollider _triggerSphereCollider;
     [SerializeField] GameObject flamePrefab;
 
-    public ProjectileProperties properties;
+    public ProjectileProperties properties = new ProjectileProperties();
+    public AmmoType type;
 
     private void OnEnable()
     {
-        _corutine = StartCoroutine(DeactivateProjectileAfterTime());
-
+        StartCoroutine(DeactivateProjectileAfterTime());
+        type = AmmoManager.currentAmmoType;
         _triggerSphereCollider = GetComponent<SphereCollider>();
 
-        if (properties.ammoType != 2)
+        if (type != AmmoType.Explosive)
         {
             _triggerSphereCollider.enabled = false;
         }
         else
             _triggerSphereCollider.enabled= true;
-  
     }
 
+    // Collider for Regular and Flammable Ammo
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.TryGetComponent<EnemyDamageScript>(out EnemyDamageScript enemyDamageScript))
         {
-            enemyDamageScript.TakeDamage(properties.ammoDamage);
+            enemyDamageScript.TakeDamage(10);
         }
 
-        else if (collision.gameObject.CompareTag("Ground") && properties.ammoType == 3)
+        else if (collision.gameObject.CompareTag("Ground") && type == AmmoType.Flammable)
         {
-            Debug.Log("dziala");
             Instantiate(flamePrefab, gameObject.transform.position, Quaternion.identity);
         }
 
         _pool.Release(this);
     }
 
+    // Sphere collider for Explosive Ammo
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.TryGetComponent<EnemyDamageScript>(out EnemyDamageScript enemyDamageScript))
         {
-            enemyDamageScript.TakeDamage(properties.ammoDamage);
+            enemyDamageScript.TakeDamage(10);
         }
     }
 

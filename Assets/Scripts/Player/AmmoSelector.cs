@@ -12,7 +12,7 @@ public class AmmoSelector : MonoBehaviour
 
     //public ProjectileProperties properties = new ProjectileProperties();
 
-    public ProjectileProperties properties;
+    public ProjectileProperties properties = new ProjectileProperties();
 
     private void Awake()
     {

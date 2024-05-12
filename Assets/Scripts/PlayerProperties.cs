@@ -5,9 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class PlayerProperties : ScriptableObject
 {
-    [SerializeField] int defaultStarCount = 0;
-    [SerializeField] int defaultExplosivesCount = 0;
-    [SerializeField] int defaultFlammableCount = 0;  
+     int defaultStarCount = 100;
+     int defaultExplosivesCount = 0;
+     int defaultFlammableCount = 0;  
 
     public int starCount;
     public int explosivesCount;

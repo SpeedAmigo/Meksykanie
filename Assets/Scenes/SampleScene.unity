@@ -8850,7 +8850,7 @@ GameObject:
   - component: {fileID: 1397280181}
   - component: {fileID: 1397280184}
   - component: {fileID: 1397280183}
-  - component: {fileID: 1397280186}
+  - component: {fileID: 1397280188}
   - component: {fileID: 1397280182}
   - component: {fileID: 1397280185}
   - component: {fileID: 1397280187}
@@ -8990,7 +8990,6 @@ MonoBehaviour:
   force: 50
   projectileSpawnPoint: {fileID: 8727966}
   projectileScript: {fileID: -6683419166242037168, guid: 578b723209c3a00488614a1d991e2e41, type: 3}
-  projectileProperties: {fileID: 11400000, guid: 934895a4f15cd6645b13ccea4ba0d677, type: 2}
   isReloaded: 0
 --- !u!114 &1397280184
 MonoBehaviour:
@@ -9113,24 +9112,6 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &1397280186
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1397280177}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34e42c3cb34aa3848b45e30cadd67af7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabRb: {fileID: 1443639149276594955, guid: 578b723209c3a00488614a1d991e2e41, type: 3}
-  gameObjects:
-  - {fileID: 849258748}
-  - {fileID: 86135482}
-  - {fileID: 1761793685}
-  properties: {fileID: 11400000, guid: 934895a4f15cd6645b13ccea4ba0d677, type: 2}
 --- !u!114 &1397280187
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9150,6 +9131,25 @@ MonoBehaviour:
   m_IgnoreFromBuild: 0
   m_ApplyToChildren: 1
   m_AffectedAgents: ffffffff
+--- !u!114 &1397280188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1397280177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d250cd3d5b79b4f49920d38e7b69a7be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameObjects:
+  - {fileID: 849258748}
+  - {fileID: 86135482}
+  - {fileID: 1761793685}
+  rb: {fileID: 1443639149276594955, guid: 578b723209c3a00488614a1d991e2e41, type: 3}
+  hasAmmo: 0
+  playerProperties: {fileID: 11400000, guid: c971d753cd146fd408c0c3a828307f2e, type: 2}
 --- !u!1 &1407251164
 GameObject:
   m_ObjectHideFlags: 0
