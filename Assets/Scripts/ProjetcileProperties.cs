@@ -10,8 +10,8 @@ public class ProjectileProperties
 {
     public PlayerProperties playerProperties;
 
-    [SerializeField] int defaultAmmoType = 1;
-    [SerializeField] bool defaultHasAmmo = false;
+    //[SerializeField] int defaultAmmoType = 1;
+    //[SerializeField] bool defaultHasAmmo = false;
 
     public Vector3 direction;
     public Vector3 initialPosition;

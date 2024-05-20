@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class EnemyDamageScript : MonoBehaviour
 {
     public ParticleSystem particle;
     public GameObject starPrefab;
+    public UnityEvent onEnemyDeath;
 
     public EnemyProperties properties = new EnemyProperties();
 
@@ -21,6 +23,8 @@ public class EnemyDamageScript : MonoBehaviour
 
     public void Die()
     {
+        onEnemyDeath.Invoke();
+
         Destroy(gameObject);
         Instantiate(particle, gameObject.transform.position, Quaternion.identity);
         Instantiate(starPrefab, gameObject.transform.position, Quaternion.identity);
@@ -29,5 +33,10 @@ public class EnemyDamageScript : MonoBehaviour
     public void Start()
     {
         properties.enemyHealth = 10;
+
+        if (onEnemyDeath == null)
+        {
+            onEnemyDeath = new UnityEvent();
+        }
     }
 }
