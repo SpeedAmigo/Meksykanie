@@ -15,13 +15,19 @@ public class TutorialManager : MonoBehaviour
     public EnemyDamageScript enemy;
 
     public bool dummyHasDied = false;
+    public bool hasBeenClicked = false;
     private void MovementTutorial()
     {
         if (popUpIndex == 0)
         {
             if (Input.GetKeyDown(KeyCode.Mouse0) || Input.GetKeyDown(KeyCode.Mouse1))
             {
-                popUpIndex++;
+                if (!hasBeenClicked)
+                {
+                    StartCoroutine(PopUpDelay(2));
+                    hasBeenClicked = true;
+                }
+                //popUpIndex++;
             }
         }
         else if (popUpIndex == 1)
@@ -29,14 +35,24 @@ public class TutorialManager : MonoBehaviour
             shifter.GetComponent<CanvasManager>().enabled = true;
             if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.W))
             {
-                popUpIndex++;
+                if (!hasBeenClicked)
+                {
+                    StartCoroutine(PopUpDelay(2));
+                    hasBeenClicked = true;
+                }
+                //popUpIndex++;
             }
         }
         else if (popUpIndex == 2)
         {
             if (Input.GetKey(KeyCode.Mouse0) && Input.GetKey(KeyCode.Mouse1))
             {
-                popUpIndex++;
+                if (!hasBeenClicked)
+                {
+                    StartCoroutine(PopUpDelay(2));
+                    hasBeenClicked = true;
+                }
+                //popUpIndex++;
             }
         }
         else if (popUpIndex == 3)
@@ -46,7 +62,12 @@ public class TutorialManager : MonoBehaviour
             tank.GetComponent<AmmoManager>().enabled = true;
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
             {
-                popUpIndex++;
+                if (!hasBeenClicked)
+                {
+                    StartCoroutine(PopUpDelay(2));
+                    hasBeenClicked = true;
+                }
+                //popUpIndex++;
             }
         }
         else if (popUpIndex == 4)
@@ -54,7 +75,12 @@ public class TutorialManager : MonoBehaviour
             tutorialSpawner.SetActive(true);
             if (dummyHasDied == true)
             {
-                popUpIndex++;
+                if (!hasBeenClicked)
+                {
+                    StartCoroutine(PopUpDelay(2));
+                    hasBeenClicked = true;
+                }
+                //popUpIndex++;
             }
         }
         else if (popUpIndex == 5)
@@ -68,13 +94,14 @@ public class TutorialManager : MonoBehaviour
             }
         }
     }
-    /*
+    
     public IEnumerator PopUpDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
         popUpIndex++;
+        hasBeenClicked = false;
     }
-    */
+    
 
     public void HandleEnemyDeath()
     {
