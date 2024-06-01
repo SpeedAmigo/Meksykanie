@@ -1568,7 +1568,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "you can spend    to buy \nbetter ammunition. \npress    to open the shop."
+  m_text: "you can spend    to buy \nbetter ammunition. \npress    to open the shop.
+    EXIT"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5df8b478a1117dd49be46def2ff8081f, type: 2}
   m_sharedMaterial: {fileID: 5659725155459723503, guid: 5df8b478a1117dd49be46def2ff8081f, type: 2}
@@ -17716,6 +17717,7 @@ MonoBehaviour:
   shifter: {fileID: 6499922}
   enemy: {fileID: 959589577}
   dummyHasDied: 0
+  hasBeenClicked: 0
 --- !u!4 &2110060741
 Transform:
   m_ObjectHideFlags: 0
