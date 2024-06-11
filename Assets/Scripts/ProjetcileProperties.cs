@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.UIElements;
 using UnityEngine;
-
-[CreateAssetMenu]
 public class ProjectileProperties
 {
     public PlayerProperties playerProperties;
