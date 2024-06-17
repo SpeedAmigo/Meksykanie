@@ -24,6 +24,7 @@ public class AmmoManager : MonoBehaviour
 
         currentAmmoType = AmmoType.Regular;
         ShowRegularAmmo();
+        hasAmmo = true;
     }
 
     void Update()
