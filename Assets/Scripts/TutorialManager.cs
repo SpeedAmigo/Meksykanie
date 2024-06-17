@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
+    public SceneLoader sceneLoader;
     public GameObject[] popUps;
     public int popUpIndex;
     public GameObject tank;
@@ -16,6 +17,7 @@ public class TutorialManager : MonoBehaviour
 
     public bool dummyHasDied = false;
     public bool hasBeenClicked = false;
+    public bool tutorialFinished = false;
     private void MovementTutorial()
     {
         if (popUpIndex == 0)
@@ -85,14 +87,30 @@ public class TutorialManager : MonoBehaviour
         }
         else if (popUpIndex == 5)
         {
-            shop.SetActive(true);
             shop.GetComponent<shopManager>().enabled = true;
             tutorialSpawner.SetActive(false);
             if (Input.GetKeyDown(KeyCode.B))
             {
+                shop.SetActive(true);
+                tutorialFinished = true;
+                StartCoroutine(SceneLoadingDely());
                 popUpIndex++;
             }
         }
+    }
+
+    public void TutorialFinished()
+    {
+        if (tutorialFinished)
+        {
+            sceneLoader.LoadScene(2);
+        }
+    }
+
+    public IEnumerator SceneLoadingDely()
+    {
+        yield return new WaitForSeconds(3);
+        TutorialFinished();
     }
     
     public IEnumerator PopUpDelay(float delay)
