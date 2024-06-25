@@ -5966,7 +5966,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3965702939825272069, guid: ba59e6557d4934f47b8f6d9c3cdbf4fb, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.45
+      value: 3.037
       objectReference: {fileID: 0}
     - target: {fileID: 3965702939825272069, guid: ba59e6557d4934f47b8f6d9c3cdbf4fb, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6012,6 +6012,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1397280177}
+    - target: {fileID: 8578987084855450103, guid: ba59e6557d4934f47b8f6d9c3cdbf4fb, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 1193823560644722968, guid: 9871dbb88f5a9bb4d871e73392c5ffe5, type: 3}
+    - target: {fileID: 8578987084855450103, guid: ba59e6557d4934f47b8f6d9c3cdbf4fb, type: 3}
+      propertyPath: projectileSpeed
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11357,6 +11365,14 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1397280177}
+    - target: {fileID: 8578987084855450103, guid: ba59e6557d4934f47b8f6d9c3cdbf4fb, type: 3}
+      propertyPath: fireRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8578987084855450103, guid: ba59e6557d4934f47b8f6d9c3cdbf4fb, type: 3}
+      propertyPath: projectileSpeed
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
