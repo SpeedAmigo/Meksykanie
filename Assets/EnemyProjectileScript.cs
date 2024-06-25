@@ -10,7 +10,7 @@ public class EnemyProjectileScript : MonoBehaviour
     public float life;
 
     public void OnTriggerEnter(Collider other)
-    {s
+    {
         Destroy(gameObject);
     }
     // Update is called once per frame
