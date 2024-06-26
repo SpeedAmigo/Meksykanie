@@ -1,43 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.AssemblyQualifiedNameParser;
 using UnityEngine;
-using UnityEngine.VFX;
 
 public class TurretMovement : MonoBehaviour
 {
-    public GameObject vCamera;
-    public GameObject turret;
-    public GameObject canonPivot;
+    public GameObject cameraTarget;  // The camera
+    public GameObject turretRotationPivot; // The rotationPivot
+    public GameObject turret;   // The turret
+    public GameObject canonPivot; // The cannon pivot
 
-    public float rotationSpeed = 50;
+    public float rotationSpeed = 50; // Rotation speed for smoothness
     float currentLift;
 
-    private Quaternion cameraRotation;
-    private Quaternion turretRotation;
-    private Quaternion canonRotation;
-
-    // Update is called once per frame
     void Update()
     {
         TurretRotation();
 
         float newLift = currentLift + Input.GetAxis("Vertical") * 10 * Time.deltaTime;
-
         CanonLift(newLift);
     }
 
     private void TurretRotation()
     {
-        cameraRotation = vCamera.transform.localRotation;
-        turretRotation = turret.transform.rotation;
+        Quaternion turretRotation = turretRotationPivot.transform.localRotation;
 
-        Quaternion targetRotation = Quaternion.Euler(0f, cameraRotation.eulerAngles.y, 0f);
+        // Get the current rotation of the turret
+        Quaternion currentRotation = turret.transform.rotation;
 
+        // Create the target rotation with the camera's Y rotation, keeping the current X and Z rotations
+        Quaternion targetRotation = Quaternion.Euler(turretRotation.eulerAngles.x, turretRotation.eulerAngles.y, turretRotation.eulerAngles.z);
+
+        // Smoothly rotate the turret towards the target rotation
         float step = rotationSpeed * Time.deltaTime;
-        turret.transform.rotation = Quaternion.RotateTowards(turretRotation, targetRotation, step);
+
+        turret.transform.rotation = Quaternion.RotateTowards(currentRotation, targetRotation, step);
     }
+
     private void CanonLift(float lift)
     {
         currentLift = Mathf.Clamp(lift, -10, 20);

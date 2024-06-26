@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     public GameObject gObject;
+    public GameObject turretRotationPivot;
     public float sensivity;
 
     Vector2 camRotation;
@@ -30,7 +31,7 @@ public class CameraManager : MonoBehaviour
         camRotation.y += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
 
         gObject.transform.rotation = Quaternion.Euler(camRotation.y, camRotation.x, 0);
-
+        turretRotationPivot.transform.localRotation = Quaternion.Euler(0f, camRotation.x, 0f);
         camRotation.y = Mathf.Clamp(camRotation.y, lookMin, lookMax);
     }
 }
