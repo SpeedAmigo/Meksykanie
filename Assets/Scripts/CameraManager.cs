@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -30,7 +31,7 @@ public class CameraManager : MonoBehaviour
         camRotation.x += Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
         camRotation.y += Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
 
-        gObject.transform.rotation = Quaternion.Euler(camRotation.y, camRotation.x, 0);
+        gObject.transform.localRotation = Quaternion.Euler(camRotation.y, camRotation.x, 0);
         turretRotationPivot.transform.localRotation = Quaternion.Euler(0f, camRotation.x, 0f);
         camRotation.y = Mathf.Clamp(camRotation.y, lookMin, lookMax);
     }

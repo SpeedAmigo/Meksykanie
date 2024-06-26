@@ -22,7 +22,7 @@ public class TurretMovement : MonoBehaviour
 
     private void TurretRotation()
     {
-        Quaternion turretRotation = turretRotationPivot.transform.localRotation;
+        Quaternion turretRotation = turretRotationPivot.transform.rotation;
 
         // Get the current rotation of the turret
         Quaternion currentRotation = turret.transform.rotation;
