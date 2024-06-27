@@ -15,7 +15,6 @@ public class TankDamageScript : MonoBehaviour
         {
             if (activatedDecals.Count >= decalsList.Count)
             {
-                Debug.Log("All of the decals have beed activated!");
                 return;
             }
 
@@ -41,7 +40,6 @@ public class TankDamageScript : MonoBehaviour
     {
         if (activeDecalsList.Count == 0)
         {
-            Debug.Log("No active decals to deactivate.");
             return;
         }
 
@@ -51,7 +49,6 @@ public class TankDamageScript : MonoBehaviour
         decalsList[decalToDeactivate].SetActive(false);
         activeDecalsList.RemoveAt(randomIndex);
         activatedDecals.Remove(decalToDeactivate);
-        Debug.Log("Decal Deactivated: " + decalToDeactivate);
     }
 
     private void Start()
