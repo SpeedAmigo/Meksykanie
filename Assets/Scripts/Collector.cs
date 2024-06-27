@@ -5,6 +5,7 @@ using UnityEngine;
 public class Collector : MonoBehaviour
 {
     public PlayerProperties playerProperties;
+    public TankDamageScript damageScript;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,6 +18,7 @@ public class Collector : MonoBehaviour
          if (other.gameObject.TryGetComponent<EnemyDamageScript>(out EnemyDamageScript enemyDamageScript))
         {
             enemyDamageScript.TakeDamage(10);
+            damageScript.DecalDeActivation();
         }
     }
 }
