@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -9069707745656505069}
   m_Layer: 0
   m_Name: EnemyProjectile
-  m_TagString: Projectile
+  m_TagString: EnemyProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -108,7 +108,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
@@ -148,3 +148,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e5756d1fbea8ca489679d7d6955197f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 3

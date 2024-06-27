@@ -12,6 +12,8 @@ TagManager:
   - Flammable
   - Ground
   - Star
+  - EnemyProjectile
+  - Hull
   layers:
   - Default
   - TransparentFX

@@ -216,7 +216,7 @@ MonoBehaviour:
   enemyScript: {fileID: 0}
   firePoint: {fileID: 3548147676883981281}
   fireRate: 1
-  projectileSpeed: 10
+  projectileSpeed: 40
   fireCooldown: 0
 --- !u!1 &7638542083300398160
 GameObject:
@@ -243,7 +243,7 @@ Transform:
   m_GameObject: {fileID: 7638542083300398160}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.585, y: 0, z: 0}
+  m_LocalPosition: {x: 0.778, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
