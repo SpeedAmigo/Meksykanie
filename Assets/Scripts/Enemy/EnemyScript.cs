@@ -59,7 +59,6 @@ public class EnemyScript : FieldOfView
         {
             StopEnemy();
         }
-
     }
 
 }

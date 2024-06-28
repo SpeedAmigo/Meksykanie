@@ -6,8 +6,9 @@ using UnityEngine;
 public class TankDamageScript : MonoBehaviour
 {
     public List<GameObject> decalsList = new List<GameObject>();
+    public List<int> activeDecalsList = new List<int>();
     private HashSet<int> activatedDecals = new HashSet<int>();
-    private List<int> activeDecalsList = new List<int>();
+    [SerializeField] private SlayMeterUI slayMeterUI;
 
     public void OnTriggerEnter(Collider other)
     {
@@ -33,7 +34,10 @@ public class TankDamageScript : MonoBehaviour
         activatedDecals.Add(randomValue);
         activeDecalsList.Add(randomValue);
         decalsList[randomValue].SetActive(true);
-        Debug.Log("Decal Activated");
+        //Debug.Log("Decal Activated");
+
+        int active = activeDecalsList.Count;
+        slayMeterUI.SlayMeterSlider(active);
     }
 
     public void DecalDeActivation()
@@ -49,6 +53,9 @@ public class TankDamageScript : MonoBehaviour
         decalsList[decalToDeactivate].SetActive(false);
         activeDecalsList.RemoveAt(randomIndex);
         activatedDecals.Remove(decalToDeactivate);
+
+        int active = activeDecalsList.Count;
+        slayMeterUI.SlayMeterSlider(active);
     }
 
     private void Start()
@@ -64,6 +71,11 @@ public class TankDamageScript : MonoBehaviour
             decalsList[i].SetActive(false);
         }
         */
+    }
+
+    private void Update()
+    {
+        int active = activeDecalsList.Count;
     }
 
 }
