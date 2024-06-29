@@ -2,10 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
+using System.Xml.Schema;
 
 public class SlayMeterUI : MonoBehaviour
 {
     public Image image;
+    public TMP_Text multiplier;
+    public ScoreCounter scoreCounter;
+    public int multiplierInt = 0;
 
     private Dictionary<int, float> value = new Dictionary<int, float>()
     {
@@ -22,6 +27,14 @@ public class SlayMeterUI : MonoBehaviour
         {10, 0.0f}
     };
 
+    private Dictionary<int, int> multiplierValue = new Dictionary<int, int>()
+    {
+        {0, 3},
+        {3, 2},
+        {7, 1},
+        {10, 0}
+    };
+
 
     // This method should be called whenever the integer value changes
     public void SlayMeterSlider(int newValue)
@@ -30,6 +43,16 @@ public class SlayMeterUI : MonoBehaviour
         {
             float newFillAmount = value[newValue];
             image.fillAmount = newFillAmount;
+            MultiplierAction(newValue);
+        }
+    }
+
+    public void MultiplierAction(int value)
+    {
+        if (multiplierValue.TryGetValue(value, out int multiplierVal))
+        {
+            multiplier.text = multiplierVal.ToString();
+            multiplierInt = multiplierVal;
         }
     }
 
@@ -38,5 +61,7 @@ public class SlayMeterUI : MonoBehaviour
     {
         image = GetComponent<Image>();
         image.fillAmount = 1;
+        multiplier.text = multiplierValue[0].ToString();
+        multiplierInt = multiplierValue[0];
     }
 }

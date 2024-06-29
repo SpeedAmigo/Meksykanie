@@ -24,6 +24,7 @@ public class EnemyDamageScript : MonoBehaviour
     public void Die()
     {
         onEnemyDeath.Invoke();
+        EventManager.ScorePoints.Invoke();
 
         Destroy(gameObject);
         Instantiate(particle, gameObject.transform.position, Quaternion.identity);
