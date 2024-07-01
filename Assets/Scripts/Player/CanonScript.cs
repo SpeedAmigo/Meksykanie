@@ -70,13 +70,13 @@ public class CanonScript : MonoBehaviour
     }
     private IEnumerator ReloadCorutine()
     {
-        Debug.Log("Reloading");
+        //Debug.Log("Reloading");
         isReloaded = false;
 
         yield return new WaitForSeconds(4);
 
         isReloaded = true;
-        Debug.Log("Cannon reloaded");
+        //Debug.Log("Cannon reloaded");
     }
 
     ProjectileProperties ProjectileData()
@@ -102,6 +102,7 @@ public class CanonScript : MonoBehaviour
             projectile.GetComponent<Rigidbody>().AddForce(projectileSpawnPoint.forward * force, ForceMode.Impulse);
 
             StartCoroutine(ReloadCorutine());
+            EventManager.Reloading.Invoke();
         }
     }
     private void Update()

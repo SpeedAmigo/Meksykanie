@@ -40,19 +40,19 @@ public class CanvasManager : MonoBehaviour
 
     private void HandleUI()
     {
-        if (movement.maxSpeed == 10)
+        if (movement.maxSpeed == 5)
         {
             handleUI.transform.localPosition = new Vector3(-277, -83, 0);
         }
-        if (movement.maxSpeed == 20)
+        if (movement.maxSpeed == 10)
         {
             handleUI.transform.localPosition = new Vector3(-277, -140, 0);
         }
-        if (movement.maxSpeed == 30)
+        if (movement.maxSpeed == 15)
         {
             handleUI.transform.localPosition = new Vector3(-240, -83, 0);
         }
-        if (movement.maxSpeed == 40)
+        if (movement.maxSpeed == 20)
         {
             handleUI.transform.localPosition = new Vector3(-240, -140, 0);
         }

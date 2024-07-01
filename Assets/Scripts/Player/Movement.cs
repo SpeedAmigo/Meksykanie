@@ -54,7 +54,7 @@ public class Movement : MonoBehaviour
     private void GearAction(InputAction.CallbackContext context)
     {
         int gearValue = int.Parse(context.action.name.Replace("Gear", ""));
-        float newMaxSpeed = gearValue * 10;
+        float newMaxSpeed = gearValue * 5;
 
         if (Mathf.Abs(newMaxSpeed - _previousMaxSpeed) > 10)
         {
@@ -69,11 +69,11 @@ public class Movement : MonoBehaviour
     }
     private void Reverse(InputAction.CallbackContext context)
     {
-        if (maxSpeed <= 10)
+        if (maxSpeed <= 5)
         {
             isInReverse = true;
             acceleration = -1000;
-            maxSpeed = 10;
+            maxSpeed = 5;
         }
     }
 
