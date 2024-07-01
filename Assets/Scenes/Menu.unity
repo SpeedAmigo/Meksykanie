@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.5601614, g: 0.7210448, b: 0.8175845, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -562,6 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerProperties: {fileID: 11400000, guid: c971d753cd146fd408c0c3a828307f2e, type: 2}
+  damageScript: {fileID: 0}
 --- !u!4 &46950378 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e9aa9d7b762eb6142a8882b923ef4021, type: 3}
