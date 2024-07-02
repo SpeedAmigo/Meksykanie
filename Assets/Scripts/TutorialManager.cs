@@ -12,6 +12,7 @@ public class TutorialManager : MonoBehaviour
     public GameObject shop;
     public GameObject tutorialSpawner;
     public GameObject shifter;
+    public Canvas tankCanvas;
 
     public EnemyDamageScript enemy;
 
@@ -61,6 +62,7 @@ public class TutorialManager : MonoBehaviour
         {
             tank.GetComponent<TurretMovement>().enabled = true;
             tank.GetComponent<CanonScript>().enabled = true;
+            tankCanvas.enabled = true;
             tank.GetComponent<AmmoManager>().enabled = true;
             if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S))
             {
@@ -103,7 +105,7 @@ public class TutorialManager : MonoBehaviour
     {
         if (tutorialFinished)
         {
-            sceneLoader.LoadScene(2);
+            sceneLoader.LoadScene(3);
         }
     }
 
@@ -135,6 +137,7 @@ public class TutorialManager : MonoBehaviour
         tank.GetComponent<AmmoManager>().enabled = false;
         shop.GetComponent<shopManager>().enabled = false;
         shifter.GetComponent<CanvasManager>().enabled = false;
+        tankCanvas.enabled = false;
 
         if (enemy != null)
         {

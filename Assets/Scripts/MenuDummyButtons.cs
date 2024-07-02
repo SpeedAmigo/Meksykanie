@@ -5,6 +5,7 @@ using UnityEngine;
 public class MenuDummyButtons : MonoBehaviour
 {
     public List<GameObject> gameObjects;
+    public List<GameObject> volumeIndicators;
     public GameObject circle;
     public AudioSource audioSource;
     public SceneLoader sceneLoader;
@@ -27,19 +28,25 @@ public class MenuDummyButtons : MonoBehaviour
             float volume = volumeLevels[index];
             //audioSource.volume = volume;
             Debug.Log("Volume set to: " + (volume * 100) + "%");
+
+            for (int i = 0; i < volumeIndicators.Count; i++)
+            {
+                if (i == index - 2)
+                {
+                    volumeIndicators[i].SetActive(true);
+                }
+                else
+                    volumeIndicators[i].SetActive(false);
+            }
            
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (GameObject obj in volumeIndicators) 
+        {
+            obj.SetActive(false);
+        }
     }
 }
